@@ -1,7 +1,10 @@
 version: '3'
+
 services:
   odoo:
-    image: odoo:17
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8069:8069"
     environment:
@@ -12,6 +15,7 @@ services:
       - DB_PASSWORD=mohammed
     depends_on:
       - postgres
+
   postgres:
     image: postgres:17
     environment:
@@ -20,5 +24,6 @@ services:
       POSTGRES_PASSWORD: mohammed
     volumes:
       - odoo-db-data:/var/lib/postgresql/data
+
 volumes:
   odoo-db-data:
