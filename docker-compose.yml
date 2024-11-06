@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  web:
+    image: odoo:17
+    ports:
+      - "8069:8069"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8069
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=odoo
+      - DB_PASSWORD=odoo_password
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo_password
+      - POSTGRES_DB=odoo_db
