@@ -10,14 +10,14 @@ services:
       - PORT=8069
       - DB_HOST=db
       - DB_PORT=5432
-      - DB_USER=odoo
-      - DB_PASSWORD=odoo_password
+      - DB_USER=mohammed
+      - DB_PASSWORD=mohammed
     depends_on:
       - db
 
   db:
-    image: postgres:13
+    image: postgres:17
     environment:
-      - POSTGRES_USER=odoo
-      - POSTGRES_PASSWORD=odoo_password
-      - POSTGRES_DB=odoo_db
+      - POSTGRES_USER=mohammed
+      - POSTGRES_PASSWORD=odoo_mohammed
+      - POSTGRES_DB=odoocomm_online
